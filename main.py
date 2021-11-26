@@ -1,6 +1,6 @@
+# -------------------------------------------------
+# gemaakt door Bilal, parsing function
 import pandas as pd
-
-data = pd.read_csv('C:/Users/Bilal/Downloads/dataset.csv')
 
 class notAnInteger(Exception):
     pass
@@ -22,5 +22,4 @@ def parsing(data, row, col):
     except notPandasDataFrame:
         print('Dataset provided is not a Pandas DataFrame')
     
-    
-parsing(data,0,0)
+# -------------------------------------------------
