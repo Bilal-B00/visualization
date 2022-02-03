@@ -42,37 +42,21 @@ if __name__ == '__main__':
                 id="right-column",
                 className="nine columns",
                 children=[
-                    scatterplot1,
-                    scatterplot2,
                     dcc.Graph(figure = pyramid, id='pyramid'),
                     html.Br(),
                     html.Center(html.H1(id='vehicle_title')),
                     html.Div( children = [
                             html.Br(),
-                            html.Div(dcc.Graph(figure = hist1, id='hist1', style = {'width':'500px'}), style = {'display':'inline-block'}),
-                            html.Div(dcc.Graph(figure = hist2, id='hist2', style = {'width':'500px'}), style = {'display':'inline-block'}),],
+                            html.Div(dcc.Graph(figure = hist1, id='hist1', style = {'width':'333px'}), style = {'display':'inline-block'}),
+                            html.Div(dcc.Graph(figure = hist2, id='hist2', style = {'width':'333px'}), style = {'display':'inline-block'}),
+                            html.Div(dcc.Graph(figure = hist3, id='hist3', style = {'width':'333px'}), style = {'display':'inline-block'})],
                             style = {'wdith':'100%', 'display':'inline-block'}),
-                            html.Center(dcc.Graph(figure = hist3, id='hist3', style = {'width':'500px'}))]
+                            ]
             ),
         ],
     )
 
     # Define interactions
-    @app.callback(
-        Output(scatterplot1.html_id, "figure"), [
-        Input("select-color-scatter-1", "value"),
-        Input(scatterplot2.html_id, 'selectedData')
-    ])
-    def update_scatter_1(selected_color, selected_data):
-        return scatterplot1.update(selected_color, selected_data)
-
-    @app.callback(
-        Output(scatterplot2.html_id, "figure"), [
-        Input("select-color-scatter-2", "value"),
-        Input(scatterplot1.html_id, 'selectedData')
-    ])
-    def update_scatter_2(selected_color, selected_data):
-        return scatterplot2.update(selected_color, selected_data)
     @app.callback(
         Output("pyramid", "figure"),
         Input("year-of-population-pyramid", "value"))
