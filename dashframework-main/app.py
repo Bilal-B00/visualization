@@ -26,7 +26,7 @@ with urlopen('https://raw.githubusercontent.com/martinjc/UK-GeoJSON/master/json/
 if __name__ == '__main__':
     # Create data
 
-    df = pd.read_csv('C:/Users/Tychon Bos/Google Drive/CSAI/Visualization/data.csv')
+    df = pd.read_csv('data.csv')
     line = linegraph('accident_index', 'accident_year_x', [1,2,3,4], 'sex_of_driver' ,df)
     
     df_map = pd.read_csv('map.csv', dtype={"LAD13CD": str})            # opens the csv file in the directory
