@@ -11,6 +11,7 @@ def generate_description_card():
         id="description-card",
         children=[
             html.H5("Visualizaton tool group 34"),
+
             html.Div(
                 id="intro",
                 children="Data contains accidents in the UK",
@@ -27,21 +28,8 @@ def generate_control_card():
     return html.Div(
         id="control-card",
         children=[
-            html.Label("Color scatterplot 1"),
+            html.Label("Year of population pyramid"),
             dcc.Dropdown(
-                id="select-color-scatter-1",
-                options=[{"label": i, "value": i} for i in color_list1],
-                value=color_list1[0],
-            ),
-            html.Br(),
-            html.Label("Color scatterplot 2"),
-            dcc.Dropdown(
-                id="select-color-scatter-2",
-                options=[{"label": i, "value": i} for i in color_list2],
-                value=color_list2[0],
-                
-            ),
-            html.Br(),
             html.Label("Line graph"),
             dcc.Dropdown(
                 id="LineGraph",
@@ -49,6 +37,10 @@ def generate_control_card():
                 value='Total', searchable=True, placeholder='Please select...', clearable=True
                 
             ),
+                id="year-of-population-pyramid",
+                options=[{"label": i, "value": i} for i in range(2016, 2021) ],
+                value = 2016
+            )
         ], style={"textAlign": "float-left"}
     )
 

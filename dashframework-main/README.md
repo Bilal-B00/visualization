@@ -1,18 +1,22 @@
-# JBI100-example-app
+# Group 34 Source Code
 
 ## About this app
 
-You can use this as a basic template for your JBI100 visualization project.
+Everything is developed using python programming language. The data needed can be found in the github repository.
 
 ## Requirements
 
 * Python 3 (add it to your path (system variables) to make sure you can access it from the command prompt)
-* Git (https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* Git (https://github.com/Bilal-B00/visualization/)
+* Pandas 
+* Numpy
+* Dash
+* Plotly
 
 ## How to run this app
 
 We suggest you to create a virtual environment for running this app with Python 3. Clone this repository 
-and open your terminal/command prompt in the root folder.
+and open your terminal/command prompt in the root folder. Open the app.py file and run the file. The link that pops up when running the code should be copied into your browser (preferably Google Chrome). The link should show the Visualization tool.
 
 
 open the command prompt
@@ -51,3 +55,8 @@ You will get a http link, open this in your browser to see the results. You can 
 ## Resources
 
 * [Dash](https://dash.plot.ly/)
+* Python 3 (add it to your path (system variables) to make sure you can access it from the command prompt)
+* Git (https://github.com/Bilal-B00/visualization/)
+* Pandas
+* Numpy
+* Plotly
