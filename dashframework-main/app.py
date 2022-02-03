@@ -20,8 +20,6 @@ if __name__ == '__main__':
     df_2 = pd.read_csv('C:/Users/Bilal/Downloads/data.csv')
 
     # Instantiate custom views
-    scatterplot1 = Scatterplot("Scatterplot 1", 'sepal_length', 'sepal_width', df)
-    scatterplot2 = Scatterplot("Scatterplot 2", 'petal_length', 'petal_width', df)
     pyramid = populationPyramid("sex_of_driver", "age_band_of_driver", df_2, 2016)
     hist1 = histogram('age_band_of_driver', '', 0, "Age Band", df_2)
     hist2 = histogram('vehicle_type', 'age_band_of_driver', 9, 'Vehicle Type', df_2)
