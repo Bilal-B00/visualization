@@ -16,18 +16,39 @@ from dash.dependencies import Input, Output
 import pandas as pd
 from dash import dcc
 
+from urllib.request import urlopen
+import json                                                   #necessary library
+with urlopen('https://raw.githubusercontent.com/martinjc/UK-GeoJSON/master/json/administrative/gb/lad.json') as response:
+    district = json.load(response) #opens the Geojson file necessary for the plot from the raw Json file. 
+                                   #Json file is made by martinjc and can be found on https://martinjc.github.io/UK-GeoJSON/
+
 
 if __name__ == '__main__':
     # Create data
 
     df = pd.read_csv('C:/Users/Tychon Bos/Google Drive/CSAI/Visualization/data.csv')
     line = linegraph('accident_index', 'accident_year_x', [1,2,3,4], 'sex_of_driver' ,df)
+    
+    df_map = pd.read_csv('map.csv', dtype={"LAD13CD": str})            # opens the csv file in the directory
 
     # Instantiate custom views
     pyramid = populationPyramid("sex_of_driver", "age_band_of_driver", df, 2016)
     hist1 = histogram('age_band_of_driver', '', 0, "Age Band", df)
     hist2 = histogram('vehicle_type', 'age_band_of_driver', 9, 'Vehicle Type', df)
     hist3 = histogram("sex_of_driver", "age_band_of_driver", 9, "Sex of Driver", df)
+    
+    map = px.choropleth(df_map , geojson = district,                    # Dataset and geojson are loaded
+                    featureidkey = "properties.LAD13NM",       # Featurekey from the dataset
+                    locations = df["LAD13NM"],                 # Uses the featurekey to build the locations from the Geojson file
+                    color='total_accident_district',           # Assigns the colormap to the chosen attribute
+                    range_color=(0, 4000),                     # Range for which the color scale are applied
+                    scope = 'europe',                          # Scope for base map
+                    color_continuous_scale="blues"             # Colourmap choice
+                    
+)
+
+    map.update_geos(fitbounds="locations", visible=False)
+    map.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 
 
     app.layout = html.Div(
@@ -56,6 +77,7 @@ if __name__ == '__main__':
                             html.Div(dcc.Graph(figure = hist2, id='hist2', style = {'width':'333px'}), style = {'display':'inline-block'}),
                             html.Div(dcc.Graph(figure = hist3, id='hist3', style = {'width':'333px'}), style = {'display':'inline-block'})],
                             style = {'wdith':'100%', 'display':'inline-block'}),
+                            dcc.Graph(figure = map)
                             ]
 
             ),
