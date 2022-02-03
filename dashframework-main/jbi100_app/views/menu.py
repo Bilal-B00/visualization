@@ -10,7 +10,7 @@ def generate_description_card():
     return html.Div(
         id="description-card",
         children=[
-            html.H5("Example dashboard"),
+            html.H5("Example "),
             html.Div(
                 id="intro",
                 children="You can use this as a basic template for your JBI100 visualization project.",
@@ -27,20 +27,6 @@ def generate_control_card():
     return html.Div(
         id="control-card",
         children=[
-            html.Label("Color scatterplot 1"),
-            dcc.Dropdown(
-                id="select-color-scatter-1",
-                options=[{"label": i, "value": i} for i in color_list1],
-                value=color_list1[0],
-            ),
-            html.Br(),
-            html.Label("Color scatterplot 2"),
-            dcc.Dropdown(
-                id="select-color-scatter-2",
-                options=[{"label": i, "value": i} for i in color_list2],
-                value=color_list2[0],
-            ),
-            html.Br(),
             html.Label("Year of population pyramid"),
             dcc.Dropdown(
                 id="year-of-population-pyramid",
