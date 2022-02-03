@@ -1,35 +1,26 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jan 18 19:17:45 2022
-
-@author: Tychon Bos
-"""
 import plotly.express as px
 import pandas as pd
 import numpy as np
 
-def linegraph(accident_index, year_col, sex_of_driver, sex_col ,df):
+def linegraph(accident_index, year_col, sex_of_driver, sex_col ,df): #intialize function with parameters to create linegraph
     
     genders = {} 
-    for sex in sex_of_driver:
+    for sex in sex_of_driver: #loop through genders
         genders[str(sex)] = []
 
 
-    year = np.sort(df[year_col].unique())
-    #print(year)
-    #print(type(year))
-    for i in year:
-        for key in genders:
-            if int(key) == 4: # 1 male, 2 female, 3 other, 4 total
-                genders[key].append(df[df[year_col] == i][accident_index].unique().shape[0]) #total accidents for each year
-    #print(genders)
+    year = np.sort(df[year_col].unique()) #sort year
 
+    for i in year: # loop through year
+        for key in genders: #loop through genders
+            if int(key) == 4: #assign values: 1 male, 2 female, 3 other, 4 total
+                genders[key].append(df[df[year_col] == i][accident_index].unique().shape[0]) #count total accidents for each year
             else:
-                genders[key].append( df[ (df[year_col] == i) & (df[sex_col] == int(key)) ][accident_index].unique().shape[0])
+                genders[key].append( df[ (df[year_col] == i) & (df[sex_col] == int(key)) ][accident_index].unique().shape[0]) #count total accidents for male, female or other
       
     d = {}
     d['year' ] = year    
-    for key in genders:
+    for key in genders: #loop through genders and value for genders
         if int(key) == 1:
             d['male'] = genders[key]
         elif int(key) == 2:
@@ -41,7 +32,6 @@ def linegraph(accident_index, year_col, sex_of_driver, sex_col ,df):
         
     df1 = pd.DataFrame(data=d)  
     df1.set_index('year')
-    fig = px.line(df1, x='year', y=df1.columns[0:len(sex_of_driver)+1], title='Amount of accidents for each year (2016-2020)')
-    fig.update_xaxes(type='category')
+    fig = px.line(df1, x='year', y=df1.columns[0:len(sex_of_driver)+1], title='Amount of accidents for each year (2016-2020)') #make linegraph
+    fig.update_xaxes(type='category') 
     return fig
-
