@@ -16,7 +16,7 @@ Everything is developed using python programming language. The data needed can b
 ## How to run this app
 
 We suggest you to create a virtual environment for running this app with Python 3. Clone this repository 
-and open your terminal/command prompt in the root folder. Open the app.py file and run the file. The link that pops up when running the code should be copied into your browser (preferably Google Chrome). The link should show the Visualization tool. The datasets (map.csv and data.csv) are needed for the project. Map.csv can be found in this github repository. Data.csv can be found here: https://drive.google.com/file/d/16RB-uyc-jRGqEqSNMVA2mEjdY0f5-e2n/view?usp=sharing.
+and open your terminal/command prompt in the root folder. Open the app.py file and run the file. The link that pops up when running the code should be copied into your browser (preferably Google Chrome). The link should show the Visualization tool. The datasets (map.csv and data.csv) are needed for the project. Map.csv can be found in this github repository. Data.csv can be found here: https://drive.google.com/file/d/16RB-uyc-jRGqEqSNMVA2mEjdY0f5-e2n/view?usp=sharing. Data.csv should be placed into the dashframework-main folder.
 
 
 open the command prompt
