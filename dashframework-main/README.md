@@ -55,3 +55,8 @@ You will get a http link, open this in your browser to see the results. You can 
 ## Resources
 
 * [Dash](https://dash.plot.ly/)
+* Python 3 (add it to your path (system variables) to make sure you can access it from the command prompt)
+* Git (https://github.com/Bilal-B00/visualization/)
+* Pandas
+* Numpy
+* Plotly
