@@ -2,7 +2,7 @@
 
 ## About this app
 
-Everything is developed using python programming language. The data needed can be found in the github repository.
+Everything is developed using python programming language. The data needed can be found in the github repository and in the google drive link below.
 
 ## Requirements
 
