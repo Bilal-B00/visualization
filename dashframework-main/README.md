@@ -12,6 +12,7 @@ Everything is developed using python programming language. The data needed can b
 * Numpy
 * Dash
 * Plotly
+* GeoJSON and TopoJSON versions of UK Boundary Data
 
 ## How to run this app
 
